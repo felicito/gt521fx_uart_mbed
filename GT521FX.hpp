@@ -30,9 +30,10 @@
  */
 #ifndef __GT521FX_HPP
 #define __GT521FX_HPP
+    
     #include "mbed.h"
     
-    class GT521FX : public BufferedSerial
+    class GT521FX : public Serial
     {
     public:
         enum Command {
@@ -94,7 +95,7 @@
         long IsoAreaMaxSize;
         char DeviceSerialNumber[16];
     
-        GT521FX(PinName _tx, PinName _rx) : BufferedSerial(_tx,_rx) , LastError(0) {}
+        GT521FX(PinName _tx, PinName _rx) : Serial(_tx,_rx) , LastError(0) {}
         int Init(void);
         int SendCommand( long Parameter, short Command);
         int RecvResponse( long *Parameter, short *Response);

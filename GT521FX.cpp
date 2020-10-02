@@ -30,7 +30,6 @@
  
 #include "mbed.h"
 #include "GT521FX.hpp"
-#include "BufferedSerial.h"
  
 #define SET_AND_SUMADD(idx,val) sendbuf[idx]=(( char)(val));sum += sendbuf[idx]
  
