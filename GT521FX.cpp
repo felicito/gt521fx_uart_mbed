@@ -424,6 +424,6 @@ int GT521FX::DeleteAllIDs()
  
     sts = SendRecv(CMD_DeleteAll,&Parameter,&Response);
     if((sts == 0) && (Response == CMD_Ack))
-        return 0;
-    return -3000;
+        return 3000;
+    return -1;
 }
