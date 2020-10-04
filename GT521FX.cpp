@@ -369,8 +369,8 @@ int GT521FX::Enroll(int ID,int (*progress)(int status,char *msg))
  
 int GT521FX::CheckEnrolled(int ID)
 {
-     long Parameter = ID;
-     short Response = 0;
+    long Parameter = ID;
+    short Response = 0;
     int sts = 0;
  
     sts = SendRecv(CMD_CheckEnrolled,&Parameter,&Response);
@@ -406,8 +406,8 @@ int GT521FX::SetTemplate(int ID,  char *data,  long size)
  
 int GT521FX::DeleteID(int ID)
 {
-     long Parameter = ID;
-     short Response = 0;
+    long Parameter = ID;
+    short Response = 0;
     int sts = 0;
  
     sts = SendRecv(CMD_DeleteID,&Parameter,&Response);
@@ -424,6 +424,18 @@ int GT521FX::DeleteAllIDs()
  
     sts = SendRecv(CMD_DeleteAll,&Parameter,&Response);
     if((sts == 0) && (Response == CMD_Ack))
-        return 3000;
+        return 0;
     return -1;
+}
+
+int GT521FX::GetEnrollCount()
+{
+    long Parameter = 0;
+    short Response = 0;
+    int sts = 0;
+
+    sts = SendRecv(CMD_GetEnrollCount, &Parameter, &Response);
+    if((sts != 0) || (Response != CMD_Ack))
+        return -1;
+    return Parameter;
 }

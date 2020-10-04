@@ -115,6 +115,7 @@
         int DeleteID(int ID);
         int SetTemplate(int ID, char *data, long size);
         int DeleteAllIDs();
+        int GetEnrollCount()
     };
  
 #endif  //__GT521FX_HPP
